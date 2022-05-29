@@ -1,0 +1,94 @@
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    #CACAE6,
+    #D3DBF0,
+    #CAD2D9,
+    #D3EAF0,
+    #CAE6E4
+  );
+}
+main {
+    display: grid;
+    gap: 1rem;
+    height: auto;
+    padding: 50px 0;
+}
+main > h2 {
+    text-align: center;
+}
+
+.projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(300px,100%), 1fr));
+    gap: 1rem;
+    padding: 0 9%;
+}
+.projeto {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  padding: 10px 3%;
+  display: flex;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: #3B3A3A;
+
+}
+.projetos > a:first-child {
+  cursor: pointer;
+  text-decoration: none;
+  color: #3B3A3A;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--gradient);
+  background-size: 400%;
+}
+.projetos > a:first-child:hover {
+  animation: gradient-anim 3s infinite alternate;
+}
+.projeto:hover {
+  animation: scale-hovering .5s alternate;
+}
+.foto {
+  margin-right: 10px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.titulo {
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes gradient-anim {
+  0% {
+
+    background-position: left;
+  }
+  50% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+    background-position: right;
+  }
+}
+@keyframes scale-hovering {
+    0% {
+      transform: scale(1);
+
+  }
+  50% {
+    transform: scale(1.03);
+    background-color: rgba(211,219,240,.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,35 @@
+{% extends 'portfolio/layout.html' %}
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}">
+{% endblock %}
+{% block main %}
+    <h2>Projetos</h2>
+    <div class="projetos">
+        <a href="{% url 'portfolio:newprojeto' %}">
+            <div class="botao">
+                <p>+ Adicionar Projeto</p>
+            </div>
+        </a>
+
+        {% for projeto in projetos %}
+                <a href="{% url 'portfolio:projeto' 'projetos' projeto.id  %}" class="projeto">
+
+                    <div class="foto">
+                        <img height="100" src="{% static 'portfolio/images/giphy.gif' %}">
+                    </div>
+                    <div class="info">
+                            <p>{{ projeto.titulo }}</p>
+                            <div class="ano">
+                                <p>{{ projeto.ano_realizado }}</p>
+                            </div>
+                        <div class="tech">
+                            <p>{{ projeto.tech_usado }}</p>
+                        </div>
+                    </div>
+
+                </a>
+        {% endfor %}
+
+    </div>
+{% endblock main %}

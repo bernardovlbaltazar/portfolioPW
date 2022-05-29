@@ -1,0 +1,61 @@
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    #CACAE6,
+    #D3DBF0,
+    #CAD2D9,
+    #D3EAF0,
+    #CAE6E4
+  );
+}
+main {
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info {
+    margin: 0 20px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgba(0 0 0 / .3);
+    background: rgba(0 0 0 / .07);
+    border-radius: 5px;
+}
+.links {
+    text-align: center;
+    padding: 30px 0
+}
+.back > a {
+    padding: 20px 0%;
+      cursor: pointer;
+      text-decoration: none;
+      color: #3B3A3A;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: var(--gradient);
+      background-size: 400%;
+      margin: 5px 50px;
+}
+.back > a:hover {
+  animation: gradient-anim 3s infinite alternate;
+}
+@keyframes gradient-anim {
+  0% {
+
+    background-position: left;
+  }
+  50% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+    background-position: right;
+  }
+}

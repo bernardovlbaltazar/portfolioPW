@@ -1,0 +1,220 @@
+{% extends 'portfolio/layout.html' %}
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/about.css' %}">
+    {% load static %}
+    <script src="{% static 'portfolio/js/popup_post.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="titulo">
+            <h2>Licenciatura</h2>
+        </div>
+        <div class="subtitulo">
+            <h3>Cadeiras</h3>
+        </div>
+        <div class="subcontainer">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'portfolio:newcadeira' %}">
+                    <div class="botao">
+                        <p>+ Adicionar Cadeira</p>
+                    </div>
+                </a>
+            {% endif %}
+            {% for cadeira in cadeiras %}
+                <div class="caixa">
+                    <div class="nome">
+                        <h4>{{ cadeira.nome }}</h4>
+                    </div>
+                    <div class="info">
+                        <p>{{ cadeira.ano }}º ano</p>
+                        <div class="semestre">
+                          <p>{{ cadeira.semestre }}º semestre</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="titulo">
+            <h2>Educação</h2>
+        </div>
+        <div class="subtitulo">
+            <h3>Escolas</h3>
+        </div>
+        <div class="subcontainer">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'portfolio:newescola' %}">
+                    <div class="botao">
+                        <p>+ Adicionar Escola</p>
+                    </div>
+                </a>
+            {% endif %}
+            {% for escola in escolas %}
+                <div class="caixa">
+                    <div class="nome">
+                        <h4>{{ escola.nome }}</h4>
+                    </div>
+                    <div class="info">
+                        <p>Início: {{ escola.ano_inicio }}</p>
+                        <div class="semestre">
+                          <p>Fim : {{ escola.ano_fim }} </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="titulo">
+            <h2>Certificados</h2>
+        </div>
+        <div class="subcontainer">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'portfolio:newcertificado' %}">
+                    <div class="botao">
+                        <p>+ Adicionar Certificado</p>
+                    </div>
+                </a>
+            {% endif %}
+            {% for certicado in certificados %}
+                <div class="caixa">
+                    <div class="nome">
+                        <h4>{{ certicado.titulo }}</h4>
+                    </div>
+                    <div class="info">
+                        <p>Início: {{ certicado.ano_inicio }}</p>
+                        <div class="semestre">
+                          <p>Fim : {{ certicado.ano_fim }} </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="titulo">
+            <h2>Outras habilitações</h2>
+        </div>
+        <div class="subcontainer">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'portfolio:newhabilitacao' %}">
+                    <div class="botao">
+                        <p>+ Adicionar Habilitacao</p>
+                    </div>
+                </a>
+            {% endif %}
+            {% for habilitacao in habilitacoes %}
+                <div class="caixa">
+                    <div class="nome">
+                        <h4>{{ habilitacao.titulo }}</h4>
+                    </div>
+                    <div class="info">
+                        <p>{{ habilitacao.ano }}</p>
+
+
+                    </div>
+
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="titulo">
+            <h2>Aptidões e competências pessoais</h2>
+        </div>
+        <div class="subtitulo">
+            <h3>Tecnicas</h3>
+        </div>
+        <div class="subtitulo">
+            <h3>Organizativas</h3>
+        </div>
+        <div class="subtitulo">
+            <h3>Sociais</h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="titulo">
+            <h2>Interesses e hobbies</h2>
+        </div>
+        <div class="subcontainer">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'portfolio:newinteresse' %}">
+                    <div class="botao">
+                        <p>+ Adicionar Interesse</p>
+                    </div>
+                </a>
+            {% endif %}
+            {% for interesse in interesses %}
+                <div class="interesse caixa ">
+                    <div class="nome">
+                        <h4>{{ interesse.titulo }}</h4>
+                    </div>
+
+                </div>
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+    <div class="modals">
+        {% for cadeira in cadeiras %}
+            <dialog id="modal">
+                <div class="cabecalho">
+                    <div class="titulo">
+                        <h4>{{ cadeira.nome }}</h4>
+                        <p>Ranking: {{ cadeira.ranking }}/5</p>
+                    </div>
+
+                    <div class="ano-semestre">
+                        <p>{{ cadeira.ano }}º ano</p>
+                        <p>{{ cadeira.semestre }}º semestre</p>
+                    </div>
+
+                </div>
+
+                <div class="descricao">
+                    <div class="subtext">Descricao</div>
+                    <p>{{ cadeira.descricao }}</p>
+                </div>
+                <div class="docentes">
+                    <div class="teorica">Teorica<p> {{ cadeira.docente_teorica }}</p></div>
+                    <div class="pratica">Pratica<p> {{ cadeira.docente_praticas }}</p></div>
+                </div>
+                 <div class="teorica">
+                    {% if cadeira.cadeira is not Blank %}
+                     {% for projeto in cadeira.cadeira.all %}
+                        Projetos<p><a href="{% url 'portfolio:projeto' 'about' projeto.id%}"> {{ projeto }}</a></p>
+                     {% endfor %}
+                    {% endif %}
+
+                 </div>
+
+
+                <div class="close-button">✖</div>
+            </dialog>
+        {% endfor %}
+    </div>
+
+{% endblock main %}

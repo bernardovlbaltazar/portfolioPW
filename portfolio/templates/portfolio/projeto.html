@@ -1,0 +1,50 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/single-projeto.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="header">
+        <h3>{{ projeto.titulo }}</h3>
+        <p>{{ projeto.cadeira }}</p>
+        {% if projeto.imagem is not Blank %}
+            <img src="" alt="">
+        {% endif %}
+        <p>{{ projeto.ano_realizado }}</p>
+        {% if projeto.participantes is not Blank %}
+            {% for foo in projeto.participantes.all %}
+                <p>{{ foo }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="info">
+        <p>{{ projeto.descricao }}</p>
+        <p>{{ projeto.tech_usado }}</p>
+    </div>
+    <div class="links">
+        {% if projeto.github is not Blank %}
+            <p>{{ projeto.github }}</p>
+        {% endif %}
+        {% if projeto.youtube is not Blank %}
+            <p>{{ projeto.youtube }}</p>
+        {% endif %}
+    </div>
+
+
+
+
+
+
+    <div class="back">
+
+        {% if origem == 'about' %}
+            <a href="{% url 'portfolio:about' %}">Voltar</a>
+        {% elif origem == 'projetos' %}
+            <a href="{% url 'portfolio:projetos' %}">Voltar</a>
+        {% endif %}
+    </div>
+
+
+{% endblock %}

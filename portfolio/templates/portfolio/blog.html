@@ -1,0 +1,51 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block style %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
+    {% load static %}
+    <script src="{% static 'portfolio/js/popup_post.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+
+    <div class="posts">
+        <a href="{% url 'portfolio:newpost' %}">
+            <div class="botao">
+                <p>+ Criar Post</p>
+            </div>
+        </a>
+        {% for post in posts %}
+            <div class="post">
+                <div class="titulo_editar">
+                    <h4>{{ post.titulo }}</h4>
+                    <a href="{% url 'portfolio:editar' post.id %}">✏️</a>
+                </div>
+
+                <div class="autordata">
+                    <p class="autor">{{ post.autor }}</p>
+                    <p class="data">{{ post.data }}</p>
+                </div>
+
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="modals">
+        {% for post in posts %}
+            <dialog id="modal">
+                <h4>{{ post.titulo }}</h4>
+                <p>{{ post.descricao }}</p>
+                <div class="autordata">
+                    <p class="autor">{{ post.autor }}</p>
+                    <p class="data">{{ post.hora }}</p>
+                </div>
+                <div class="close-button">✖</div>
+            </dialog>
+        {% endfor %}
+    </div>
+
+    
+{% endblock %}

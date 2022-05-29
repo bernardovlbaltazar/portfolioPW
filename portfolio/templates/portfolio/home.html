@@ -1,0 +1,27 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+{% endblock style %}
+
+{% block main %}
+
+    {% if message %}
+        <dialog>{{message}}</dialog>
+    {% endif %}
+
+    <div class="header">
+        <div class="foto">
+            {% load static %}
+            <img src="{% static 'portfolio/images/Asset 4@2x.png' %}" alt="">
+        </div>
+        <div class="texto">
+            <h1>Olá,</h1>
+            <h1>sou o Bernardo !</h1>
+            <p>A creative problem solver</p>
+        </div>
+    </div>
+
+
+{% endblock main %}

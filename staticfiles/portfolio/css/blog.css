@@ -1,0 +1,132 @@
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    #CACAE6,
+    #D3DBF0,
+    #CAD2D9,
+    #D3EAF0,
+    #CAE6E4
+  );
+}
+main {
+  display: grid;
+  gap: 1rem;
+  height: auto;
+  padding: 50px 0;
+
+}
+.posts {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit,minmax(min(300px,100%), 1fr));
+  padding: 0 9%;
+
+}
+.post {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  padding: 10px 3%;
+}
+.titulo_editar {
+  display: flex;
+
+}
+.post:hover {
+  animation: scale-hovering .5s alternate;
+}
+.titulo_editar > h4, #modal >h4 {
+  font-size: 1.3rem;
+  margin-top: 1%;
+  margin-bottom: 0px;
+
+}
+.titulo_editar > a {
+  margin-left: auto;
+  text-decoration: none;
+  color: #3B3A3A;
+  cursor: pointer;
+}
+#modal > h4 {
+  text-align: center;
+}
+.autordata {
+  display: flex;
+
+}
+.data {
+  margin-left: auto;
+
+}
+.posts > a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #3B3A3A;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--gradient);
+  background-size: 400%;
+}
+.posts > a:hover {
+  animation: gradient-anim 3s infinite alternate;
+}
+
+.botao {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+#modal {
+  padding: 1em;
+  max-width: 80ch;
+  width: 50ch;
+  border: 0;
+  box-shadow: 0 0 1em rgb(0 0 0 / .3);
+  border-radius: 5px;
+  margin: auto;
+  position: relative;
+
+}
+#modal > p {
+  border: 1px solid rgba(0 0 0 / .3);
+  background: rgba(0 0 0 / .1);
+  text-align: center;
+  padding: 20px 5px;
+  border-radius: 5px;
+}
+.close-button {
+  font-size: 1rem;
+  position: absolute;
+  top: 5px;
+  right: 14px;
+  cursor: pointer;
+
+}
+@keyframes gradient-anim {
+  0% {
+
+    background-position: left;
+  }
+  50% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+    background-position: right;
+  }
+}
+@keyframes scale-hovering {
+    0% {
+      transform: scale(1);
+
+  }
+  50% {
+    transform: scale(1.03);
+    background-color: rgba(211,219,240,.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
