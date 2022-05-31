@@ -19,7 +19,7 @@
                 <a href="{% url 'portfolio:projeto' 'projetos' projeto.id  %}" class="projeto">
 
                     <div class="foto">
-                        <img height="100" src="{% static 'portfolio/images/giphy.gif' %}">
+                        <img height="100" src="{{ projeto.imagem.url }}">
                     </div>
                     <div class="info">
                             <p>{{ projeto.titulo }}</p>
