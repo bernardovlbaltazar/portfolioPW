@@ -64,6 +64,7 @@ class Projeto(models.Model):
     titulo = models.CharField(max_length=20)
     cadeira = models.ForeignKey(Cadeira, on_delete=models.CASCADE, related_name='cadeira')
     descricao = models.TextField(max_length=500)
+    extensao = models.CharField(max_length=10)
     imagem = models.ImageField(blank=True, upload_to=projeto_path)
     ano_realizado = models.IntegerField(default=0)
     participantes = models.ManyToManyField(Pessoa, related_name="participacao", blank=True)
