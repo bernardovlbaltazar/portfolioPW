@@ -4,35 +4,86 @@
     <link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}">
 {% endblock %}
 {% block main %}
-    <h2>Projetos</h2>
+
     <div class="projetos">
-        {% if request.user.is_authenticated %}
-            <a href="{% url 'portfolio:newprojeto' %}">
-            <div class="botao">
-                <p>+ Adicionar Projeto</p>
-            </div>
-            </a>
-        {% endif %}
+        <div class="header">
+            <h2>Projetos</h2>
+        </div>
+
+        <div class="container">
+            {% if request.user.is_authenticated %}
+                <div class="criar">
+                    <a href="{% url 'portfolio:newprojeto' %}">
+                        <div class="botao">
+                            <p>+ Adicionar Projeto</p>
+                        </div>
+                    </a>
+                </div>
+
+            {% endif %}
 
 
-        {% for projeto in projetos %}
-                <a href="{% url 'portfolio:projeto' 'projetos' projeto.id  %}" class="projeto">
+            {% for projeto in projetos %}
+                <a href="{% url 'portfolio:projeto' 'projetos' projeto.id %}" class="caixa">
 
                     <div class="foto">
                         <img height="100" src="{{ projeto.imagem.url }}">
                     </div>
                     <div class="info">
+                        <div class="titulo">
                             <p>{{ projeto.titulo }}{{ projeto.extensao }}</p>
-                            <div class="ano">
-                                <p>{{ projeto.ano_realizado }}</p>
-                            </div>
-                        <div class="tech">
-                            <p>{{ projeto.tech_usado }}</p>
+                        </div>
+
+                        <div class="ano">
+                            <p>{{ projeto.ano_realizado }}</p>
                         </div>
                     </div>
 
                 </a>
-        {% endfor %}
+            {% endfor %}
 
+        </div>
     </div>
+
+    <div class="tfcs">
+        <div class="header">
+            <h2>TFC'S</h2>
+        </div>
+
+        <div class="container">
+            {% if request.user.is_authenticated %}
+                <div class="criar">
+                    <a href="{% url 'portfolio:newprojeto' %}">
+                        <div class="botao">
+                            <p>+ Adicionar Projeto</p>
+                        </div>
+                    </a>
+                </div>
+
+            {% endif %}
+
+
+            {% for tfc in tfcs %}
+                <a href="{% url 'portfolio:tfc' tfc.id %}" class="caixa">
+
+                    <div class="foto">
+                        <img height="100" src="{{ tfc.imagem.url }}">
+                    </div>
+                    <div class="info">
+                        <div class="titulo">
+                            <p>{{ tfc.titulo }}</p>
+                        </div>
+
+                        <div class="ano">
+                            <p>{{ tfc.ano }}</p>
+                        </div>
+                    </div>
+
+                </a>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
 {% endblock main %}

@@ -74,11 +74,11 @@ main {
 }
 .nome {
   justify-content: flex-start;
-  padding: 10px 20px 0px;
+  padding: 10px 20px 0;
 }
 .info {
   display: flex;
-  padding: 0px 20px 10px;
+  padding: 0 20px 10px;
 }
 .semestre {
   margin-left: auto;
@@ -144,17 +144,22 @@ main {
   border-radius: 5px;
   padding: 0 10px;
 }
-.teorica > p > a {
+.teorica > a {
   text-decoration: none;
   color: #3B3A3A;
   cursor: pointer;
   transition: 1s ease-in-out;
+   border: 1px solid rgba(0 0 0 / .3);
+  background: rgba(0 0 0 / .07);
+  text-align: center;
+  border-radius: 5px;
+  padding: 0 10px;
 }
-.teorica > p > a:focus {
+.teorica > a:focus {
   outline: none;
 }
 
-.teorica > p:hover {
+.teorica > a:hover {
   animation: scale-hovering 1s alternate;
 }
 .pratica {

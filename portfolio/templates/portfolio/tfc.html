@@ -1,0 +1,84 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/single-tfc.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="first">
+            <div class="header">
+
+                <div class="left">
+                    <div class="imagem">
+                        {% if tfc.imagem is not Blank %}
+                            <img height="100" src="{{ tfc.imagem.url }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="titulo">
+                        <h3>{{ tfc.titulo }}</h3>
+                    </div>
+
+                    <div class="ano">
+                        <p>Ano realizado: {{ tfc.ano }}</p>
+                    </div>
+                    <div class="participantes">
+                        <span>Participantes:</span>
+
+                        {% for foo in tfc.autores.all %}
+                            <div class="participante">
+                                <a href="{{ foo.linkedin }}">{{ foo }}</a>
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="info">
+                <div class="descricao">
+                    <p>{{ tfc.descricao }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tecnologias">
+
+            <h3>Professores Orientadores </h3>
+
+            <div class="techs">
+                {% for foo in tfc.orientadores.all %}
+                    <div class="tech">
+                        <a href="{{ foo.lusofona }}">{{ foo }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <!--<div class="links">
+
+                <p>Link Github: </p>
+                <p></p>
+
+
+                <p>Link Youtube:</p>
+                <p></p>
+
+        </div> -->
+
+
+        <div class="back">
+
+            <a href="{% url 'portfolio:projetos' %}">Voltar</a>
+
+        </div>
+    </div>
+
+
+{% endblock %}

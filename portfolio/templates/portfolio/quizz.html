@@ -1,0 +1,99 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/quizz.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="titulo">
+            <h2>Quizz</h2>
+        </div>
+
+        <form action="" method="POST"> {% csrf_token %}
+            <div class="user-details">
+                <div class="caixa-input">
+                    <label for="nome">Nome</label>
+                    <input type="text" placeholder="Insira o seu nome" id="nome" name="nome" required>
+                </div>
+                <div class="caixa-input">
+                    <label for="mail">Mail</label>
+                    <input type="text" placeholder="Insira o seu mail" id="mail" name="mail" required>
+                </div>
+            </div>
+
+            <div class="perguntas">
+                <div class="caixa-input p1">
+                    <label for="p1">Qual o maior tipo de título?</label>
+                    <input type="text" id="p1" name="p1" required>
+                </div>
+                <div class="caixa-input p2">
+                    <p>O que significa CSS?</p>
+                    <div class="choices">
+                        <input type="radio" name="p2" id="Cascading Style Sheets" value="Cascading Style Sheets"
+                               required>
+                        <label for="Cascading Style Sheets">Cascading Style Sheets</label><br>
+                        <input type="radio" name="p2" id="Coasting Sheet Style" value="Coasting Sheet Style">
+                        <label for="Coasting Sheet Style">Coasting Sheet Style</label><br>
+                        <input type="radio" name="p2" id="Casting Style Sheets" value="Casting Style Sheets">
+                        <label for="Casting Style Sheets">Casting Style Sheets</label>
+                    </div>
+
+                </div>
+                <div class="caixa-input p3">
+                    <p>Qual o elemento html que insere uma nova linha?</p>
+                    <div class="choices">
+                        <input type="radio" name="p3" id="lb" value="lb" required>
+                        <label for="lb">< lb ></label><br>
+                        <input type="radio" name="p3" id="break" value="break">
+                        <label for="break">break</label><br>
+                        <input type="radio" name="p3" id="br" value="br">
+                        <label for="br">< br > </label>
+                    </div>
+
+                </div>
+                <div class="caixa-input p4">
+                    <p>Como se insere corretamente uma cor de background?</p>
+                    <div class="choices" id="p4">
+                        <div>
+                            <input type="radio" name="p4" id="bg" value="bg" required>
+                            <label for="bg">< body bg="yellow" ></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="p4" id="background" value="background">
+                            <label for="background">< background > yellow < /background ></label><br>
+                        </div>
+                        <div>
+                            <input type="radio" name="p4" id="style" value="style">
+                            <label for="style">< body style="background-color:yellow;"> </label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="caixa-input p5">
+                    <p>Como se cria uma lista numerada?</p>
+                    <div class="choices">
+                        <input type="radio" name="p5" id="list" value="list" required>
+                        <label for="list">< list ></label><br>
+                        <input type="radio" name="p5" id="ul" value="ul">
+                        <label for="ul">< ul ></label><br>
+                        <input type="radio" name="p5" id="ol" value="ol">
+                        <label for="ol">< ol > </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="botao">
+                <input type="submit" value="Terminar">
+            </div>
+
+        </form>
+    </div>
+    <section class="grafico">
+        <h3>Histórico de pontuações</h3>
+        <p><img src="data:image/png;base64,{{ data }}" alt=""></p>
+    </section>
+
+{% endblock %}

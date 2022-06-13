@@ -1,0 +1,250 @@
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    #CACAE6,
+    #D3DBF0,
+    #CAD2D9,
+    #D3EAF0,
+    #CAE6E4
+  );
+}
+input {
+    accent-color: gray;
+
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    margin-top: 60px;
+    padding: 25px 30px;
+    background: var(--gradient);
+    border-radius: 8px;
+}
+.titulo {
+    position: relative;
+    text-align: center;
+}
+
+.titulo::after,.titulo::before {
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 80px;
+    bottom: -10%;
+    background: #3B3A3A;
+    border-radius: 3px;
+}
+.titulo::before {
+    width: 120px;
+    bottom: 100%;
+}
+.titulo:hover::before {
+    animation: 1.5s before-title-animation;
+}
+.titulo:hover::after {
+    animation: 1.5s after-title-animation;
+}
+@keyframes before-title-animation {
+    0% {
+        width: 120px;
+    }
+    50% {
+        width: 0;
+    }
+    100% {
+        width: 120px;
+    }
+}
+@keyframes after-title-animation {
+    0% {
+        width: 80px;
+    }
+    35% {
+        width: 0;
+    }
+    50% {
+        width: 0;
+    }
+    100% {
+        width: 80px;
+    }
+}
+
+.user-details {
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    padding: 25px 0;
+}
+.user-details > .caixa-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.caixa-input > input {
+    height: 35px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #F5F5F2;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: 0.3s ease;
+}
+.caixa-input > input:focus,
+.caixa-input > input:valid {
+    border-color: #CAD2D9;
+}
+::-webkit-input-placeholder {
+   text-align: center;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+    opacity: .1;
+}
+
+:-ms-input-placeholder {
+   text-align: center;
+}
+
+.perguntas {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.perguntas > .caixa-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.perguntas > .caixa-input {
+    padding: 10px 0;
+}
+.caixa-input > label {
+    padding: 10px 0 20px;
+}
+.caixa-input > p , .p1>label{
+    padding: 20px 25px;
+    font-weight: 500;
+    font-size: 1.08em;
+    position: relative;
+
+}
+.caixa-input > p::before, .p1>label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    width: 3px;
+    height: 10px;
+    background: #3B3A3A;
+    transform: translateY(50%);
+    border-radius: 5px;
+
+
+}
+.caixa-input > p::after, .p1>label::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    width: 3px;
+    height: 10px;
+    background: #3B3A3A;
+    transform: translateY(50%);
+    border-radius: 5px;
+
+
+}
+.caixa-input > p:hover::before, .p1>label:hover::before {
+    animation: translate-left 1s ease;
+}
+.caixa-input > p:hover::after, .p1>label:hover::after {
+    animation: translate-right 1s ease;
+}
+@keyframes translate-left {
+    0% {
+        transform: translate(0,50%) rotate(0);
+    }
+    50% {
+        transform: translate(15px,50%) rotate(90deg);
+    }
+    100% {
+        transform: translate(0,50%) rotate(180deg);
+    }
+}
+@keyframes translate-right {
+    0% {
+        transform: translate(0,50%) rotate(0);
+    }
+    50% {
+        transform: translate(-15px,50%) rotate(-90deg);
+    }
+    100% {
+        transform: translate(0,50%) rotate(-180deg);
+    }
+}
+
+.choices {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+#p4 {
+    display: flex;
+    flex-direction: column;
+
+}
+.botao {
+    display: flex;
+    justify-content: center;
+    height: 45px;
+}
+.botao > input {
+    outline: none;
+    color: #3B3A3A;
+    height: 100%;
+    width: 100%;
+    font-size: 1.12em;
+    background-size: 400%;
+    border: none;
+    border-radius: 10px;
+}
+.botao:hover {
+    animation: 1s ease scale-hovering alternate;
+}
+section {
+    text-align: center;
+    margin: 60px 0;
+}
+section>h3 {
+    font-size: 2em;
+    padding: 30px 0;
+
+}
+
+
+
+@keyframes scale-hovering {
+    0% {
+      transform: scale(1);
+
+  }
+  50% {
+    transform: scale(1.03);
+    background-color: rgba(211,219,240,.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+

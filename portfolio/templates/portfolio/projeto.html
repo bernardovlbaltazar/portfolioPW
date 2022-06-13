@@ -6,44 +6,85 @@
 {% endblock %}
 
 {% block main %}
-    <div class="header">
-        <h3>{{ projeto.titulo }}</h3>
-        <p>{{ projeto.cadeira }}</p>
-        {% if projeto.imagem is not Blank %}
-            <img src="" alt="">
-        {% endif %}
-        <p>{{ projeto.ano_realizado }}</p>
-        {% if projeto.participantes is not Blank %}
-            {% for foo in projeto.participantes.all %}
-                <p>{{ foo }}</p>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <div class="info">
-        <p>{{ projeto.descricao }}</p>
-        <p>{{ projeto.tech_usado }}</p>
-    </div>
-    <div class="links">
-        {% if projeto.github is not Blank %}
-            <p>{{ projeto.github }}</p>
-        {% endif %}
-        {% if projeto.youtube is not Blank %}
-            <p>{{ projeto.youtube }}</p>
-        {% endif %}
-    </div>
+    <div class="container">
+        <div class="first">
+            <div class="header">
+
+                <div class="left">
+                    <div class="imagem">
+                        {% if projeto.imagem is not Blank %}
+                            <img height="100" src="{{ projeto.imagem.url }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="titulo">
+                        <h3>{{ projeto.titulo }}</h3>
+                    </div>
+                    <div class="cadeira">
+                        <p>{{ projeto.cadeira }}</p>
+                    </div>
+                    <div class="ano">
+                        <p>Ano realizado: {{ projeto.ano_realizado }}</p>
+                    </div>
+                    <div class="participantes">
+                        {% if projeto.participantes.all is not Blank %}
+                            <span>Participantes:</span>
+
+                            {% for foo in projeto.participantes.all %}
+                                <div class="participante">
+                                    <a href="{{ foo.portfolio }}">{{ foo }}</a>
+                                </div>
+                            {% endfor %}
 
 
+                        {% endif %}
+                    </div>
+                </div>
 
 
+            </div>
+            <div class="info">
+                <div class="descricao">
+                    <p>{{ projeto.descricao }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tecnologias">
+
+            <h3>Tecnologia usada </h3>
+
+            <div class="techs">
+                {% for foo in projeto.tech_usado.all %}
+                    <div class="tech">
+                        <p>{{ foo }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
 
 
-    <div class="back">
+        <!--<div class="links">
+            {% if projeto.github is not Blank %}
+                <p>Link Github: </p>
+                <p>{{ projeto.github }}</p>
+            {% endif %}
+            {% if projeto.youtube. is not Blank %}
+                <p>Link Youtube:</p>
+                <p>{{ projeto.youtube }}</p>
+            {% endif %}
+        </div> -->
 
-        {% if origem == 'about' %}
-            <a href="{% url 'portfolio:about' %}">Voltar</a>
-        {% elif origem == 'projetos' %}
-            <a href="{% url 'portfolio:projetos' %}">Voltar</a>
-        {% endif %}
+
+        <div class="back">
+
+            {% if origem == 'about' %}
+                <a href="{% url 'portfolio:about' %}">Voltar</a>
+            {% elif origem == 'projetos' %}
+                <a href="{% url 'portfolio:projetos' %}">Voltar</a>
+            {% endif %}
+        </div>
     </div>
 
 

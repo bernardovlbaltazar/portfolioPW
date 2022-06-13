@@ -1,16 +1,49 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block style %}
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/login.css' %}">
 {% endblock %}
 
 {% block main %}
+    <div class="forms">
+        <div class="form login">
+            <div class="titulo">
+                Login
+            </div>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="caixa">
+                    <input type="text" name="username" placeholder="Insira o seu username" required>
+                    <span><svg  height="18" width="18" viewBox="0 0 343 410" fill="none"
+                               xmlns="http://www.w3.org/2000/svg">
+<g id="username">
+<path id="Vector"
+      d="M168.76 229.58C183.974 229.658 198.991 226.142 212.59 219.32C219.587 216.055 226.192 212.009 232.28 207.26C246 196 260.86 197 276.4 201.69C297.22 208 311.64 221.78 321.91 240.44C331.99 258.75 337.34 278.56 339.62 299.1C341.236 313.875 342.054 328.727 342.07 343.59C342.12 375.75 319.76 402.01 288.14 407.96C285.62 408.44 283.14 409.05 280.6 409.6H168.6C168.6 351.32 168.6 293.043 168.6 234.77C168.64 233 168.71 231.31 168.76 229.58Z"
+      fill="#2682FE"/>
+<path id="Vector_2"
+      d="M168.76 229.58C168.76 231.31 168.64 233.04 168.64 234.77C168.64 293.05 168.64 351.327 168.64 409.6H62.2C56.72 408.21 51.08 407.25 45.78 405.36C19.58 396 4 377.51 1.53 349.82C-1.58145 317.405 2.9003 284.712 14.62 254.33C22.27 234.57 33.85 217.6 53.29 207.23C64.5287 201.301 77.0639 198.257 89.77 198.37C93.77 198.37 98 200.32 101.77 202.16C106.124 204.456 110.299 207.077 114.26 210C130.69 221.37 148.66 228.38 168.76 229.58Z"
+      fill="#6AA8FE"/>
+<path id="Vector_3"
+      d="M168.63 0.930008C198.92 0.470008 223.56 12.51 243.49 34.77C254.79 47.4 262.49 62.03 265.54 78.72C271.46 110.88 264.8 139.82 242.64 164.59C228.09 180.84 210.38 191.73 188.83 195.8C182.23 197.04 175.4 197.08 168.67 197.67C168.663 132.09 168.65 66.51 168.63 0.930008Z"
+      fill="#F4A86C"/>
+<path id="Vector_4"
+      d="M168.63 0.930003C168.63 66.51 168.63 132.09 168.63 197.67C146.06 197.54 125.63 191.02 108.01 176.77C86.76 159.54 73.85 137.63 70.82 110.05C65.82 64.43 91.82 25.91 129.05 9.05C141.469 3.41517 154.995 0.640279 168.63 0.930003V0.930003Z"
+      fill="#FEBA85"/>
+</g>
+</svg></span>
+                </div>
+                <div class="caixa">
+                    <input type="password" name="password" placeholder="Insira a sua password" required>
+                    <span>🔒</span>
+                </div>
+                <div class="caixa botao">
+                    <input type="submit" value="Aceder">
+                </div>
 
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="your username">
-    <input type="password" name="password" placeholder="your password">
-    <input type="submit">
-</form>
+            </form>
+        </div>
+    </div>
+
 
 {% endblock %}

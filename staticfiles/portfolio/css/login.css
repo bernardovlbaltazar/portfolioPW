@@ -1,0 +1,98 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+
+}
+.forms {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: #CAD2D9;
+    border-radius: 10px;
+}
+.form {
+    padding: 30px;
+}
+.form > .titulo {
+    position: relative;
+    font-size: 25px;
+    font-weight: 600;
+}
+.form > .titulo::before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 25px;
+    background-color: #3B3A3A;
+    border-radius: 25px;
+
+
+}
+.form > .titulo:hover::before {
+    animation: ease 1s width-animation;
+}
+@keyframes width-animation {
+    0%{
+        width: 25px;
+    }
+    50%{
+        width: 0;
+    }
+    100%{
+        width: 25px;
+    }
+}
+.caixa {
+    margin-top: 30px;
+    position: relative;
+    height: 50px;
+    width: 100%;
+
+}
+.caixa > input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #3B3A3A;
+    border-top: 2px solid transparent;
+    font-size: 16px;
+    background: #CAD2D9;
+    transition: all 1s ease;
+
+}
+
+.caixa span{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.botao {
+    margin-top: 35px;
+
+}
+.botao input{
+    border: none;
+    background-color: #F5F5F2;
+    color: #3B3A3A;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.06em;
+    transition: all 0.3s ease;
+
+}
+.botao input:hover {
+    background-color: #F1F5F1;
+}
+
+

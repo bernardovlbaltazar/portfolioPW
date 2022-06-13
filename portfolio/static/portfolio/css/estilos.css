@@ -1,152 +1,207 @@
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing:border-box;
-  font-family: 'Kanit', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
 }
+
 :root {
-  font-size: 16px;
-  color: #3B3A3A;
-  --gradient: linear-gradient(
-    45deg,
-    #CACAE6,
-    #D3DBF0,
-    #CAD2D9,
-    #D3EAF0,
-    #CAE6E4
-  );
+    font-size: 16px;
+    color: #3B3A3A;
+    --gradient: linear-gradient(
+            45deg,
+            #CACAE6,
+            #D3DBF0,
+            #CAD2D9,
+            #D3EAF0,
+            #CAE6E4
+    );
 }
-html{
-  height: 100%;
+
+html {
+    height: 100%;
 }
+
 body::-webkit-scrollbar {
-  width: 0.5rem;
+    width: 0.5rem;
 }
+
 body::-webkit-scrollbar-track {
-  background: #24252A;
+    background: #24252A;
 }
+
 body::-webkit-scrollbar-thumb {
-  background: gray;
+    background: gray;
 }
+
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  background: #F5F5F2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background: #F5F5F2;
 }
 
 header {
-  height: 8vh;
-  top: 0;
+    height: 8vh;
+    top: 0;
 
-  /* alinhando logo e menu */
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 2%;
+    /* alinhando logo e menu */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 2%;
 }
+
 #logopath {
-  fill: #24252A;
+    fill: #24252A;
 }
 
 nav a {
-  position: relative;
-  display: inline-block;
-  padding: 0 1em;
-  text-decoration: none;
-  align-content: center;
-  color: #3B3A3A;
-}
-button {
-  font-size: 0.9rem;
-  padding: 8px 10px;
-  background-image: var(--gradient);
-  background-size: 400%;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.5s ease 0s;
-}
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 42.5%;
-  width: 0;
-  height: 1px;
-  background: #24252A;
-  transition: 0.4s ease-out;
-}
-nav > a:hover::after {
-  left: 15%;
-  width: 70%;
-}
-button:hover {
-  animation: gradient-anim 2s infinite alternate ;
+    position: relative;
+    display: inline-block;
+    padding: 0 1em;
+    text-decoration: none;
+    align-content: center;
+    color: #3B3A3A;
 }
 
+button {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+    background-image: var(--gradient);
+    background-size: 400%;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 42.5%;
+    width: 0;
+    height: 1px;
+    background: #24252A;
+    transition: 0.4s ease-out;
+}
+
+nav > a:hover::after {
+    left: 15%;
+    width: 70%;
+}
+
+button:hover {
+    animation: gradient-anim 2s infinite alternate;
+}
 
 
 footer {
-  margin-top: auto;
-  height:4vh;
-  display:flex;
-  justify-content: center;
-  padding: 0 2vw;
-  align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-  position: relative;
+    margin-top: auto;
+    height: 4vh;
+    display: flex;
+    justify-content: center;
+    padding: 0 2vw;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    position: relative;
 }
+
 footer > svg {
-  position: absolute;
-  bottom: 23px;
-  left: 20px;
+    position: absolute;
+    bottom: 23px;
+    left: 20px;
 }
-footer > svg{
-  animation: boat 15s ease infinite ;
-  cursor: pointer;
+
+footer > svg {
+    animation: boat 15s ease infinite;
+    cursor: pointer;
 }
+
 #notas {
-  animation: 1s music ease alternate infinite;
+    animation: 1s music ease alternate infinite;
 }
 
 @keyframes gradient-anim {
-  0% {
+    0% {
 
-    background-position: left;
-  }
-  50% {
-    transform: scale(0.97);
-  }
-  100% {
-    transform: scale(1);
-    background-position: right;
-  }
+        background-position: left;
+    }
+    50% {
+        transform: scale(0.97);
+    }
+    100% {
+        transform: scale(1);
+        background-position: right;
+    }
 }
 
 @keyframes boat {
-  0%{
-    transform: translate(0) rotate(0deg);
-  }
-  50% {
-    transform: translate(85vw) rotateX(0);
-  }
-  55% {
-    transform: translate(85vw) rotateY(180deg);
-  }
-  100% {
-    transform: translate(0) rotateY(180deg);
-  }
+    0% {
+        transform: translate(0) rotate(0deg);
+    }
+    50% {
+        transform: translate(85vw) rotateX(0);
+    }
+    55% {
+        transform: translate(85vw) rotateY(180deg);
+    }
+    100% {
+        transform: translate(0) rotateY(180deg);
+    }
 }
+
 @keyframes music {
-    0%{
-    transform: translate(0);
-  }
-  50% {
-    transform: translate(0,-10px);
-  }
-  100% {
-    transform: translate(0);
-  }
+    0% {
+        transform: translate(0);
+    }
+    50% {
+        transform: translate(0, -10px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+
+@media screen and (max-height: 650px) {
+    footer > svg {
+        width: 50px;
+    }
+
+}
+@media screen and (max-width: 650px) {
+    nav>a{
+        font-size: 0.7em;
+    }
+    nav>button{
+        font-size: 0.7em;
+    }
+}
+
+@media screen and (max-width: 1065px) and (max-height: 360px) {
+    footer > svg {
+        width: 0;
+    }
+}
+
+@media screen and (max-width: 650px) and (max-height: 650px) {
+    footer > svg {
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 650px) and (max-height: 360px) {
+    footer > svg {
+        width: 0;
+    }
+}
+
+@media screen and (min-width: 1065px) and (max-height: 360px) {
+    footer > svg {
+        width: 0;
+    }
+
 }

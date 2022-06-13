@@ -12,33 +12,111 @@ main {
     display: flex;
     flex-direction: column;
 }
+.container {
+    padding: 30px;
+}
+.first {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+}
 .header {
     display: flex;
-    flex-direction: column;
     align-items: center;
+
+}
+.left {
+    margin-right: 20px;
+    height: 100%;
+}
+.right {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.titulo {
+    font-size: 1.5em;
 }
 .info {
-    margin: 0 20px;
-    padding: 20px;
-    text-align: center;
+    max-width: 50%;
+    width: 100%;
+    margin: 0 50px 0 20px;
+    padding: 40px 10px 20px;
     border: 1px solid rgba(0 0 0 / .3);
     background: rgba(0 0 0 / .07);
     border-radius: 5px;
+}
+.descricao {
+    position: relative;
+}
+.descricao::before {
+    content: 'Descrição';
+    display: block;
+    font-size: 1.3em;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+
+
+}
+.participantes {
+    display: flex;
+    gap: 10px;
+    flex-flow: row wrap;
+}
+.participante {
+    background: #CACAE6;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: transform .3s ease ;
+}
+.participante > a {
+    color: #3B3A3A;
+    text-decoration: none;
+}
+.participante:hover {
+    transform: scale(1.03);
+}
+.tecnologias {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 30px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.tecnologias > h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.techs {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.tech {
+    cursor: pointer;
+    padding: 2px 8px;
+    background: #CACAE6;
+    border-radius: 3px;
+    font-size: 1.1em;
 }
 .links {
     text-align: center;
     padding: 30px 0
 }
+.back {
+    padding-left: 60px;
+    padding-bottom: 60px;
+}
 .back > a {
-    padding: 20px 0%;
+    padding: 20px 20px;
       cursor: pointer;
       text-decoration: none;
       color: #3B3A3A;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 10px;
       background-image: var(--gradient);
       background-size: 400%;
       margin: 5px 50px;

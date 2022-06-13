@@ -1,0 +1,228 @@
+main>h3 {
+    text-align: center;
+    font-size: 2em;
+    padding-top: 40px;
+}
+
+.page {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 80px;
+}
+
+.container {
+    display: flex;
+    padding: 60px;
+    gap: 20px;
+}
+
+.container > h1 {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 1em;
+}
+
+.caixa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 30px 30px;
+    border-radius: 10px;
+    background: transparent;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+}
+
+.titulo-caixa {
+    font-size: 1.5em;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+.titulo {
+    font-size: 1.2em;
+}
+
+.hoje {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--gradient);
+    background-size: 400%;
+    border-radius: 20px;
+    position: relative;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.lisbon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.porto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.date {
+    position: absolute;
+    font-size: 0.8em;
+    opacity: 0;
+    left: 20%;
+    bottom: 110%;
+
+}
+
+.meteo > .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.meteo > .precipita {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    position: absolute;
+    font-size: 0.8em;
+    opacity: 0;
+    left: 30%;
+    bottom: 121%;
+}
+
+.meteo > .precipita::after {
+    content: '';
+    width: 85px;
+    height: 55px;
+    left: -20px;
+    bottom: -30px;
+    background: #6f94c6;
+    opacity: 0.5;
+    position: absolute;
+    border-radius: 40%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: -1;
+}
+
+.amanha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--gradient);
+    background-size: 400%;
+    border-radius: 20px;
+    position: relative;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.hoje:hover {
+    transform: scale(1.03);
+    transition: .5s ease;
+    animation: gradient-anim 3s ease alternate;
+}
+
+.amanha:hover {
+    transform: scale(1.03);
+    transition: .5s ease;
+    animation: gradient-anim 3s ease alternate;
+}
+
+.hoje:hover .date, .amanha:hover .date {
+    opacity: 1;
+    transition: .7s ease;
+}
+
+.hoje:hover .precipita, .amanha:hover .precipita {
+    opacity: 1;
+    transition: 1s ease;
+}
+
+.hoje:hover #cloud1, .amanha:hover #cloud1 {
+    animation: nuvem 2s ease infinite;
+}
+
+.hoje:hover #cloud2, .amanha:hover #cloud2 {
+    animation: nuvem 1s ease reverse infinite;
+}
+
+.hoje:hover #cloud3, .amanha:hover #cloud3 {
+    animation: nuvem 2s ease infinite;
+}
+
+.hoje:hover #cloud4, .amanha:hover #cloud4 {
+    animation: nuvem 5s ease reverse infinite;
+}
+
+.hoje:hover #cloud5, .amanha:hover #cloud5 {
+    animation: nuvem 3s ease infinite;
+}
+
+
+.page > a {
+    background: #CACAE6;
+    padding: 30px;
+    width: 450px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #3B3A3A;
+    text-decoration: none;
+    transform-origin: top;
+    position: relative;
+}
+
+.page > a:hover {
+    animation: 3s button-anim ease;
+}
+
+@keyframes button-anim {
+    0% {
+
+        background-position: left;
+    }
+    50% {
+        transform: scale(0.97);
+    }
+    100% {
+        transform: scale(1);
+        background-position: right;
+    }
+}
+
+@keyframes nuvem {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradient-anim {
+    0% {
+
+        background-position: left;
+    }
+    50% {
+        background-position: right;
+    }
+    100% {
+
+        background-position: left;
+    }
+}

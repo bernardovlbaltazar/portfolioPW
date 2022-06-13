@@ -5,6 +5,9 @@ from django.db import models
 def projeto_path(instance,filename):
     return f'projeto/{instance.id}'
 
+def tfcs_path(instance,filename):
+    return f'tfcs/{instance.id}'
+
 class Post(models.Model):
     autor = models.CharField(max_length=30)
     data = models.DateField(auto_now_add=True)
@@ -40,6 +43,12 @@ class Linguagem(models.Model):
     def __str__(self):
         return self.nome
 
+class Tecnologia(models.Model):
+    titulo = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.titulo
+
 class Cadeira(models.Model):
     RANKING = {
         (1, '1 estrela'),
@@ -65,15 +74,17 @@ class Projeto(models.Model):
     cadeira = models.ForeignKey(Cadeira, on_delete=models.CASCADE, related_name='cadeira')
     descricao = models.TextField(max_length=500)
     extensao = models.CharField(max_length=10, blank=True)
-    imagem = models.ImageField(blank=True, upload_to=projeto_path)
+    imagem = models.ImageField(blank=True, upload_to=tfcs_path)
     ano_realizado = models.IntegerField(default=0)
-    participantes = models.ManyToManyField(Pessoa, related_name="participacao", blank=True)
+    participantes = models.ManyToManyField(Pessoa, related_name="participacao")
     github = models.URLField(blank=True)
     youtube = models.URLField(blank=True)
-    tech_usado = models.TextField(default='none')
+    tech_usado = models.ManyToManyField(Tecnologia, related_name="tecnologia")
 
     def __str__(self):
         return self.titulo
+
+
 
 
 class Escola(models.Model):
@@ -102,6 +113,34 @@ class Habilitacao(models.Model):
 
 class Interesse(models.Model):
     titulo = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.titulo
+
+class Tecnica(models.Model):
+    nome = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nome
+
+class PontuacaoQuizz(models.Model):
+    nome = models.CharField(max_length=50)
+    mail = models.EmailField(blank=True)
+    pontuacao = models.IntegerField()
+
+    def __str__(self):
+        return self.nome + ' | ' + str(self.pontuacao)
+
+class Tfc(models.Model):
+    autores = models.ManyToManyField(Pessoa, related_name='tfcAutores')
+    orientadores = models.ManyToManyField(Professor, related_name='tfcOrientadores')
+    ano = models.IntegerField()
+    titulo = models.CharField(max_length=50)
+    descricao = models.TextField(max_length=500)
+    imagem = models.ImageField(blank=True, upload_to=projeto_path)
+    relatorio = models.FileField(blank=True)
+    link_github = models.CharField(max_length=150, blank=True)
+    link_video = models.CharField(max_length=150,blank=True)
 
     def __str__(self):
         return self.titulo
