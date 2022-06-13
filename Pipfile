@@ -11,6 +11,7 @@ django = "*"
 django-cloudinary-storage = "*"
 pillow = "*"
 gunicorn = "==19.9.0"
+matplotlib = "*"
 
 [dev-packages]
 
