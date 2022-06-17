@@ -145,8 +145,16 @@ def projeto_page_view(request, origem, projeto_id):
 def tfc_page_view(request, tfc_id):
     tfc = Tfc.objects.get(pk=tfc_id)
     return render(request, 'portfolio/tfc.html', {
+
         'tfc': tfc
     })
+
+def newtfc_page_view(request):
+    form = TfcForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+    return render(request, 'portfolio/newTfc.html', {'form': form})
 
 def login_page_view(request):
     if request.method == 'POST':

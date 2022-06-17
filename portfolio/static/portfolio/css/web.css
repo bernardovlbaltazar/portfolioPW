@@ -7,21 +7,40 @@ main>h3 {
 .page {
     display: flex;
     justify-content: space-around;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     padding: 80px;
 }
-
+.separador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
 .container {
     display: flex;
-    padding: 60px;
+    flex-flow: wrap column;
+    padding: 30px;
     gap: 20px;
 }
-
-.container > h1 {
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    font-size: 1em;
+.separador >h2 {
+    font-size: 1.8em;
+}
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+    transition: 0.8s ease;
+    padding: 0 10px;
+}
+.flex > h3 {
+    padding: 10px 0 20px 10px;
+}
+.flex:hover{
+    transform: scale(1.03);
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    padding-bottom: 20px;
 }
 
 .caixa {
@@ -45,6 +64,12 @@ main>h3 {
     font-size: 1.2em;
 }
 
+.weather{
+    display: flex;
+    flex-flow: row;
+    margin-top: 20px;
+}
+.separador > l
 .hoje {
     display: flex;
     flex-direction: column;
@@ -165,7 +190,7 @@ main>h3 {
 }
 
 
-.page > a {
+.separador > a {
     background: #CACAE6;
     padding: 30px;
     width: 450px;
@@ -183,7 +208,7 @@ main>h3 {
     position: relative;
 }
 
-.page > a:hover {
+.separador > a:hover {
     animation: 3s button-anim ease;
 }
 

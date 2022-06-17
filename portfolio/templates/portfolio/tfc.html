@@ -30,7 +30,12 @@
 
                         {% for foo in tfc.autores.all %}
                             <div class="participante">
-                                <a href="{{ foo.linkedin }}">{{ foo }}</a>
+                                {% if foo.portfolio|length_is:0 %}
+                                    <a href="{{ foo.linkedin }}">{{ foo }}</a>
+                                {% else %}
+                                    <a href="{{ foo.portfolio }}">{{ foo }}</a>
+                                {% endif %}
+
                             </div>
                         {% endfor %}
 

@@ -1,16 +1,27 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block style %}
-
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/forms.css' %}">
 {% endblock %}
 
 {% block main %}
-    <h3>Adicionar Técnica</h3>
+    <style>form::before {
+        content: 'Adicionar Técnica 🔧';
+        font-size: 1.7em;
+        font-weight: 500;
+        position: absolute;
+        top: 20px;
+        left: 125px;
+    }</style>
 
-    <form method="post" action="" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{  form.as_p }}
-        <input type="submit" value="Gravar">
+    <div class="container">
+        <form method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Gravar">
 
-    </form>
+        </form>
+    </div>
+
 {% endblock %}

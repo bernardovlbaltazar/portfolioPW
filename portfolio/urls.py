@@ -21,6 +21,7 @@ urlpatterns = [
     path('newhabilitacao', views.newHabilitacao_page_view, name='newhabilitacao'),
     path('newinteresse', views.newInteresse_page_view, name='newinteresse'),
     path('newprojeto', views.newProjeto_page_view, name='newprojeto'),
+    path('newtfc', views.newtfc_page_view, name='newtfc'),
     path('newtecnica', views.newTecnica_page_view, name='newtecnica'),
     path('<str:origem>/projetos/<int:projeto_id>', views.projeto_page_view, name='projeto'),
     path('projetos/<int:tfc_id>', views.tfc_page_view, name='tfc'),

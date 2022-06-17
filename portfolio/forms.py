@@ -36,6 +36,11 @@ class ProjetoForm(ModelForm):
         model = Projeto
         fields = '__all__'
 
+class TfcForm(ModelForm):
+    class Meta:
+        model = Tfc
+        fields = '__all__'
+
 class TecnicaForm(ModelForm):
     class Meta:
         model = Tecnica

@@ -1,0 +1,98 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+form {
+    max-width: 500px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    background: #CAD2D9;
+    border-radius: 10px;
+    padding: 60px 0 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+form::before {
+    content: 'Adicionar Projeto 📝';
+    font-size: 1.7em;
+    font-weight: 500;
+    position: absolute;
+    top: 20px;
+    left: 120px;
+}
+
+form > p {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+
+}
+form>p > input {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #3B3A3A;
+    border-top: 2px solid transparent;
+    font-size: 16px;
+    background: #F5F5F2;
+    border-radius: 10px;
+    transition: all 1s ease;
+    padding-left: 10px;
+
+}
+form>p > select {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #3B3A3A;
+    border-top: 2px solid transparent;
+    font-size: 16px;
+    background: #F5F5F2;
+    border-radius: 10px;
+    transition: all 1s ease;
+    -ms-overflow-style: none; /*scroll edge*/
+  scrollbar-width: none; /*scroll firefox*/
+}
+
+form>p > select> option {
+    padding: 10px 20px;
+}
+
+form>p > textarea {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #3B3A3A;
+    border-top: 2px solid transparent;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #F5F5F2;
+    transition: all 1s ease;
+}
+form > input {
+    margin-top: 30px;
+    border: none;
+    background-color: #F5F5F2;
+    color: #3B3A3A;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.06em;
+    margin-left: 30px;
+    margin-right: 30px;
+    transition: all 0.7s ease;
+}
+form > input:hover {
+    background-color: #CAE6E4;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+form>p > label {
+
+}
