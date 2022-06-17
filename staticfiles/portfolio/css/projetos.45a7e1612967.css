@@ -1,0 +1,126 @@
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    #CACAE6,
+    #D3DBF0,
+    #CAD2D9,
+    #D3EAF0,
+    #CAE6E4
+  );
+}
+
+.projetos {
+  display: grid;
+  padding: 60px 35px;
+  grid-template-columns: 1fr 7fr;
+  gap: 15px;
+}
+.tfcs {
+  display: grid;
+  padding: 60px 35px;
+  grid-template-columns: 1fr 7fr;
+  gap: 15px;
+}
+.header {
+  padding: 0 30px;
+  align-self: center;
+  background: rgba(211,219,240,.6);
+  height: 90%;
+  border-radius: 8px;
+  border: 3px solid rgba(59, 58, 58, .3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+
+}
+.tfcs > .header {
+  position: relative;
+
+}
+.tfcs > .header:hover::after {
+  content: 'Interessantes';
+  display: block;
+  position: absolute;
+  bottom: 35%;
+  left: 22%;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(300px,100%), 1fr));
+    gap: 1rem;
+  width: 85%;
+}
+.caixa {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  border-radius: 5px;
+  padding: 10px 3%;
+  display: flex;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: #3B3A3A;
+
+}
+.criar {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--gradient);
+  background-size: 400%;
+}
+.criar > a {
+  text-decoration: none;
+  color: #3B3A3A;
+}
+.criar:hover {
+  animation: gradient-anim 3s infinite alternate;
+}
+.caixa:hover {
+  animation: scale-hovering .5s alternate;
+}
+.foto {
+  margin-right: 10px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.titulo {
+  padding-top: 15px;
+}
+.ano {
+  padding-bottom: 15px;
+}
+
+
+@keyframes gradient-anim {
+  0% {
+
+    background-position: left;
+  }
+  50% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+    background-position: right;
+  }
+}
+@keyframes scale-hovering {
+    0% {
+      transform: scale(1);
+
+  }
+  50% {
+    transform: scale(1.03);
+    background-color: rgba(211,219,240,.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
