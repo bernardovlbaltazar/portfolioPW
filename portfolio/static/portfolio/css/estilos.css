@@ -102,7 +102,7 @@ footer {
     margin-top: auto;
     height: 4vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 0 2vw;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;

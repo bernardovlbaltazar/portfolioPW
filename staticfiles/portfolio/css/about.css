@@ -29,7 +29,7 @@ main {
   margin-bottom: 1%;
 }
 .subcontainer {
-  padding: 0px 30px;
+  padding: 0 30px;
   width: 50%;
   height: 200px;
   display: grid;
