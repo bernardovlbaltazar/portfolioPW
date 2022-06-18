@@ -43,7 +43,7 @@ main {
   cursor: pointer;
   text-decoration: none;
   color: #3B3A3A;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   border-radius: 5px;
   display: flex;
   align-items: center;
